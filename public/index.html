@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Espaço Orçamento</title>
+    <link rel="stylesheet" href="./assets/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body class="bg-dark">
+    <header>
+    <h1>Logo da Empresa</h1>
+    </header>
+    <div class="container mt-5 p-2" >
+        <form id="formularioOrcamento">
+            <!-- Data do Orçamento e Validade -->
+            <div class="d-flex flex-row gap-5 pb-3 pl-0 pr-0">
+<div class="form-group">
+    <label for="dataOrcamento" class="text-white" >Data do Orçamento:</label>
+    <input type="date" class="form-control bg-secondary text-white border border-secondary" id="dataOrcamento" name="dataoorcamento" >
+</div>
+
+<div class="form-group">
+    <label for="validadeOrcamento" class="text-white">Validade do Orçamento:</label>
+    <input type="date" class="form-control bg-secondary text-white border border-secondary" id="validadeOrcamento" name="validadeorcamento">
+</div>
+            <div class="form-group">
+                <label style="display:none" >Número do Orçamento:</label>
+                <span id="numeroOrcamento" style="display:none" name="numeroorcamento"></span>
+            </div>
+        </div>
+            <!-- Dados do Cliente -->
+            <div class="form-group">
+                <label for="tipoCliente" class="text-white mb-2">Tipo de Cliente</label>
+                <select class="form-control text-white bg-secondary border border-secondary" id="tipoCliente" name="tipocliente">
+                    <option value="pf">Pessoa Física</option>
+                    <option value="pj">Pessoa Jurídica</option>
+                </select>
+            </div>
+            <div id="dadosCliente" class="text-white"></div>
+            
+            <div id="produtos"></div>
+            <button type="button" id="adicionarProduto" class="btn btn btn-primary mt-3 mb-3">Adicionar Produto</button>
+            <span id="subtotal" style="display:none">Subtotal: 0</span>
+            
+            <!-- Ficha Técnica -->
+            <div class="form-group mt-3 mb-3">
+                <label for="fichaTecnicaTexto" class="mb-2 text-white">Ficha Técnica</label>
+                <textarea class="form-control bg-secondary border-secondary " id="fichaTecnicaTexto" name="fichatecnica"></textarea>
+            </div>
+            <div class="form-group mt-3 mb-3 text-white">
+                <label for="fichaTecnicaArquivo">Ficha Técnica (arquivo)</label>
+                <input type="file" class="form-control-file bg-secondary border-secondary" id="fichaTecnicaArquivo" name="filepdf">
+            </div>
+            
+            <!-- Termos do Orçamento -->
+            <div class="form-group " style="display:none !important;">
+                <label for="termosOrcamento" name="termoorcamento">Termos do Orçamento:</label>
+            </div>
+
+            <!-- Área de Prazos -->
+<fieldset class="mt-3 mb-3 text-white">
+    <legend>Prazos</legend>
+    <div>
+        <input type="checkbox" id="prazoFabricacaoCheck"> <label for="prazoFabricacaoCheck">Prazo de fabricação</label>
+        <input autocomplete="nope" autocomplete="off" type="text" id="prazoFabricacao" placeholder="Dias para fabricação" style="display:none;" class="bg-secondary border-secondary rounded mt-2 mb-2" name="prazofabricar">
+    </div>
+    <div>
+        <input type="checkbox" id="prazoEntregaCheck"> <label for="prazoEntregaCheck">Prazo de entrega</label>
+        <input autocomplete="nope" autocomplete="off" type="text" id="prazoEntrega" placeholder="Dias para entrega" style="display: none;" class="bg-secondary border-secondary rounded mt-2 mb-2" name="prazoentrega">
+    </div>
+    <div>
+        <input autocomplete="nope" autocomplete="off" type="checkbox" id="observacaoCheck"> <label for="observacaoCheck">Observação</label>
+        <textarea id="observacao" style="display: none;" class="bg-secondary " name="observacaoprazo"></textarea>
+    </div>
+</fieldset>            
+            <!-- Área de Forma de Envio -->
+<fieldset>
+    <legend class="text-white">Forma de Envio</legend>
+    <div class="d-flex flex-row text-white align-items-center gap-3">
+    <div class="d-flex flex-column">
+    <label for="formaEnvio">Enviado por:</label>
+    <select id="formaEnvio" class="form-select bg-secondary text-white border-secondary" name="formadeenvio">
+        <option value="Transportadora">Transportadora</option>
+        <option value="Correios">Correios</option>
+        <option value="Frota Propria">Frota Própria</option>
+        <option value="Logistica Propria">Logística Própria</option>
+    </select>
+</div>
+    <div>
+        <label for="cepEnvio">CEP:</label>
+        <input type="text" id="cepEnvio" class="form-control bg-secondary text-white border-secondary" name="cep">
+    </div>
+    <div>
+        <label for="ufEnvio">UF:</label>
+        <select id="ufEnvio" class=" form-select bg-secondary text-white border-secondary " name="unidadefederativa">
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+            </select>
+    </div>
+    <div>
+        <label for="valorFrete">Valor do Frete:</label>
+        <input type="number" id="valorFrete" step="0.01" class="form-control bg-secondary text-white border-secondary "name="valorfrete">
+    </div>
+</div>
+</fieldset>
+
+            
+            <!-- Área de Forma de Pagamento -->
+<fieldset class="text-white pt-3 pb-3">
+    <legend>Forma de Pagamento</legend>
+    <select id="formaPagamento" class="form-control bg-secondary text-white border-secondary" name="formadepagamento">
+        <option value="">Selecione</option>
+        <option value="deposito">Depósito Bancário</option>
+        <option value="pix">PIX</option>
+        <option value="cartao">Cartão de Crédito</option>
+    </select>
+    <div id="detalhesPagamento" style="display:none"></div>
+</fieldset>
+            <!-- Botão para Imprimir ou Salvar em PDF -->
+            <button type="button" class="btn btn-primary mt-3" id="botaoImprimir">Imprimir</button>
+</form>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="script.js"></script> 
+    <script src="./models/component_client.js"></script>
+</body>
+</html>

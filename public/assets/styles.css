@@ -1,0 +1,19 @@
+::placeholder{
+    color:white !important;
+}
+.form-control:focus{
+    background-color: #6c757d;
+}
+/* Estilos para preenchimento automático do navegador */
+/* Estilos para preenchimento automático do navegador */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-text-fill-color: black !important; /* Define a cor do texto para branco */
+}
