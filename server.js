@@ -30,7 +30,6 @@ app.get('/imprimir', (req, res) => {
 
 
 app.post('/imprimir', (req, res) => {
-  
   try { 
       // Extrair os dados recebidos no corpo da requisição
       const dados = req.body;

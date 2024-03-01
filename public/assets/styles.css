@@ -1,9 +1,11 @@
-::placeholder{
-    color:white !important;
+::placeholder {
+    color: white !important;
 }
-.form-control:focus{
+
+.form-control:focus {
     background-color: #6c757d;
 }
+
 /* Estilos para preenchimento automático do navegador */
 /* Estilos para preenchimento automático do navegador */
 input:-webkit-autofill,
@@ -15,5 +17,23 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-    -webkit-text-fill-color: black !important; /* Define a cor do texto para branco */
+    -webkit-text-fill-color: black !important;
+    /* Define a cor do texto para branco */
+}
+
+
+.tab-content {
+    border: 2px solid rgba(255, 255, 255, 0.404);
+    /* Define uma borda de 2 pixels de largura e cor branca ao redor do conteúdo das abas */
+    padding: 20px;
+    /* Adiciona um espaçamento interno para que a borda não fique muito próxima do conteúdo */
+
+}
+
+.nav-link {
+    color: white !important; /* Define a cor do texto das abas como branco */
+}
+
+.nav-link.active {
+    color: black !important; /* Define a cor do texto das abas selecionadas como preto */
 }
