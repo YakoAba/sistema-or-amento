@@ -258,9 +258,8 @@ function coletarDadosDoFormulario() {
         return detalhesPagamentoJSON;
     }
 
-
    objeto.detalhesPagamentoJSON = extrairDetalhesPagamento(); // Chama a função no momento de preparar o objeto
-console.log("Pagamento:", objeto); // Para debugar
+// console.log("Pagamento:", objeto); // Para debugar
 
    objeto.valorestotais = extrairValoresTotais();
     

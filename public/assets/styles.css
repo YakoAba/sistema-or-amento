@@ -2,14 +2,6 @@
     color: white !important;
 }
 
-.container {
-    font-size: 14px !important;
-}
-
-.form-control:focus {
-    background-color: #6c757d;
-}
-
 /* Estilos para preenchimento automático do navegador */
 /* Estilos para preenchimento automático do navegador */
 input:-webkit-autofill,
@@ -25,7 +17,6 @@ select:-webkit-autofill:focus {
     /* Define a cor do texto para branco */
 }
 
-
 .tab-content {
     border: 2px solid rgba(255, 255, 255, 0.404);
     /* Define uma borda de 2 pixels de largura e cor branca ao redor do conteúdo das abas */
@@ -40,4 +31,20 @@ select:-webkit-autofill:focus {
 
 .nav-link.active {
     color: black !important; /* Define a cor do texto das abas selecionadas como preto */
+}
+
+legend {
+    font-size: 14px;
+    color: brown;
+}
+/* Estilos específicos para telas com largura menor que 768px (celulares, por exemplo) */
+@media (max-width: 767.98px) {
+    .container {
+        /* Defina os estilos específicos para telas menores aqui */
+        font-size: 12px !important; /* Por exemplo, reduza o tamanho da fonte para telas menores */
+    }
+    .form-control {
+        margin-right: -10px !important;
+    }
+
 }
