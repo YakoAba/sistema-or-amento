@@ -13,7 +13,7 @@
                         type="button" role="tab" aria-controls="dados" aria-selected="true">Dados</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="produtos-tab" data-bs-toggle="tab" data-bs-target="#produtos"
+                    <button class="nav-link" id="produtos-tab" data-bs-toggle="tab" data-bs-target="#produtos-aba"
                         type="button" role="tab" aria-controls="produtos" aria-selected="false">Produtos</button>
                 </li>
                 <li class="nav-item" role="presentation">
@@ -53,24 +53,23 @@
                     </div>
                     <div id="dadosCliente" class="text-white"></div>
                 </div>
-                <div class="tab-pane fade" id="produtos" role="tabpanel" aria-labelledby="produtos-tab">
+                <div class="tab-pane fade" id="produtos-aba" role="tabpanel" aria-labelledby="produtos-tab">
                     <!-- Conteúdo da aba "Produtos" aqui -->
-                    <div id="produtos">
-                        <!-- Ficha Técnica -->
-                        <div class="form-group mt-3 mb-3">
-                            <label for="fichaTecnicaTexto" class="mb-2 text-white">Ficha Técnica</label>
-                            <textarea class="form-control bg-secondary border-secondary " id="fichaTecnicaTexto"
-                                name="fichatecnica"></textarea>
-                        </div>
-                        <div class="form-group mt-3 mb-3 text-white">
-                            <label for="fichaTecnicaArquivo">Ficha Técnica (arquivo)</label>
-                            <input type="file" class="form-control-file bg-secondary border-secondary"
-                                id="fichaTecnicaArquivo" name="filepdf">
-                        </div>
-                        <button type="button" id="adicionarProduto" class="btn btn btn-primary mt-3 mb-3">Adicionar
-                            Produto</button>
-                        <span id="subtotal" style="display:none">Subtotal: 0</span>
+                    <!-- Ficha Técnica -->
+                    <div class="form-group mt-3 mb-3">
+                        <label for="fichaTecnicaTexto" class="mb-2 text-white">Ficha Técnica</label>
+                        <textarea class="form-control bg-secondary border-secondary " id="fichaTecnicaTexto"
+                            name="fichatecnica"></textarea>
                     </div>
+                    <div class="form-group mt-3 mb-3 text-white">
+                        <label for="fichaTecnicaArquivo">Ficha Técnica (arquivo)</label>
+                        <input type="file" class="form-control-file bg-secondary border-secondary"
+                            id="fichaTecnicaArquivo" name="filepdf">
+                    </div>
+                    <div id="produtos"> </div>
+                    <button type="button" id="adicionarProduto" class="btn btn btn-primary mt-3 mb-3">Adicionar
+                        Produto</button>
+                    <span id="subtotal" style="display:none">Subtotal: 0</span>
                 </div>
                 <div class="tab-pane fade" id="prazos" role="tabpanel" aria-labelledby="prazos-tab">
                     <!-- Conteúdo da aba "Prazos" aqui -->
@@ -187,13 +186,14 @@
         crossorigin="anonymous"></script>
     <script src="./script.js"></script>
     <script src="./models/component_client.js"></script>
+
     <head>
         <link rel="stylesheet" href="./assets/styles.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-            <meta charset="UTF-8">
-            <favicon />
-            <title>Espaço Orçamento</title>
+        <meta charset="UTF-8">
+        <favicon />
+        <title>Espaço Orçamento</title>
     </head>
 </body>
 
