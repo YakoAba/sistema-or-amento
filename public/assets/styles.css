@@ -2,6 +2,10 @@
     color: white !important;
 }
 
+.container {
+    font-size: 14px !important;
+}
+
 .form-control:focus {
     background-color: #6c757d;
 }

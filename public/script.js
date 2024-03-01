@@ -277,6 +277,7 @@ function enviarDadosParaNodeJS(json) {
         method: 'POST',
   headers: {
     'Content-Type': 'application/json',
+    'Accept-Encoding': 'gzip, compress, br'
   },
   body: json,
 })
