@@ -1,0 +1,41 @@
+{
+    "dataoorcamento": "2024-03-01",
+    "validadeorcamento": "2024-03-10",
+    "valorestotais": 1600,
+    "tipocliente": "pf",
+    "fichatecnica": "teste",
+    "filepdf": {},
+    "items": [
+        {
+            "nomedoproduto": "teste",
+            "brand": "teste",
+            "quantidade": 4,
+            "valorunitario": 150,
+            "valorestotal": 600
+        },
+        {
+            "nomedoproduto": "teste2",
+            "brand": "teste2",
+            "quantidade": 5,
+            "valorunitario": 200,
+            "valorestotal": 1000
+        }
+    ],
+    "fabricacao": {
+        "prazofabricar": "5",
+        "prazoentrega": "3",
+        "observacaoprazo": "cuidado pois é frágil",
+        "formadeenvio": "Correios",
+        "cep": "27655-000",
+        "unidadefederativa": "RJ",
+        "valorfrete": "150",
+        "formadepagamento": "pix"
+    },
+    "dadosCliente": {
+        "cpfcliente": "1423012408",
+        "nomecliente": "Marcos Eduardo de Oliveira"
+    },
+    "detalhesPagamentoJSON": {
+        "pix": "financeiro@espacocadeiraderodas.com.br"
+    }
+}

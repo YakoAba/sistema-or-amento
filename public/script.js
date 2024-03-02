@@ -265,7 +265,7 @@ function coletarDadosDoFormulario() {
     
    const json = JSON.stringify(objeto);
    console.log("JSON a ser enviado:", json); // Para debugar
-   
+   // 3. Abrir uma nova janela para exibir o modelo e imprimir
     
 enviarDadosParaNodeJS(json);
 }

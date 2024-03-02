@@ -28,6 +28,10 @@ app.get('/imprimir', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/imprimir.html'));
 });
 
+app.get('/layout', (req, res) => {
+  res.sendFile(path.join(__dirname, '/public/layout.html'));
+});
+
 
 app.post('/imprimir', (req, res) => {
   try { 
