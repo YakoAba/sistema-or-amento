@@ -32,7 +32,6 @@ app.get('/layout', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/layout.html'));
 });
 
-
 app.post('/imprimir', (req, res) => {
   try { 
       // Extrair os dados recebidos no corpo da requisição
