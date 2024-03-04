@@ -4,6 +4,7 @@ const cors = require("cors");
 const path = require("path");
 const { log } = require("console");
 const sqlite3 = require("sqlite3").verbose();
+const sqliteWeb = require('sqlite-web');
 
 app.use(
   cors({
@@ -13,6 +14,8 @@ app.use(
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// Inicializar o middleware do SQLite Web
+app.use('/sqlite', sqliteWeb(db));
 
 // Antes da rota que está recebendo a requisição
 app.use((req, res, next) => {
