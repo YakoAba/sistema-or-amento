@@ -4,7 +4,6 @@ const cors = require("cors");
 const path = require("path");
 const { log } = require("console");
 const sqlite3 = require("sqlite3").verbose();
-const sqliteWeb = require('sqlite-web');
 
 app.use(
   cors({
@@ -39,7 +38,7 @@ app.get("/layout", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/layout.html"));
 });
 
-app.use('/sqlite', sqliteWeb("./preorcamento.db"));
+
 
 app.post("/imprimir", async (req, res) => {
   try {
@@ -70,7 +69,6 @@ app.post("/imprimir", async (req, res) => {
           logs.mensagens.push({
             mensagem: "Conectado ao banco de dados SQLite com sucesso",
           });
-
           // Implemente a lógica de manipulação do banco de dados aqui
           const dadosSerializados = {
             ...dados,
