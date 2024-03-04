@@ -15,7 +15,7 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // Inicializar o middleware do SQLite Web
-app.use('/sqlite', sqliteWeb(db));
+
 
 // Antes da rota que está recebendo a requisição
 app.use((req, res, next) => {
@@ -38,6 +38,8 @@ app.get("/imprimir", (req, res) => {
 app.get("/layout", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/layout.html"));
 });
+
+app.use('/sqlite', sqliteWeb("./preorcamento.db"));
 
 app.post("/imprimir", async (req, res) => {
   try {
