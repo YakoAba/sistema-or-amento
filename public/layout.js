@@ -49,7 +49,7 @@ async function iniciarBuscaOrcamento() {
 
 async function buscarOrcamentoPorId(orcamentoId) {
   try {
-    const response = await fetch(`http://localhost:3000/orcamento/${orcamentoId}`);
+    const response = await fetch(`/orcamento/${orcamentoId}`);
     if (response.ok) {
       // document.getElementById('Validade').innerHTML = response.validade_orcamento;
       return response.json();
