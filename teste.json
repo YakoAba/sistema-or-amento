@@ -1,0 +1,18 @@
+{
+  "dataoorcamento": "2024-03-01",
+  "validadeorcamento": "2024-03-01",
+  "tipocliente": "pf",
+  "fichatecnica": "",
+  "filepdf": {},
+  "prazofabricar": "",
+  "prazoentrega": "",
+  "observacaoprazo": "",
+  "formadeenvio": "Transportadora",
+  "cep": "",
+  "unidadefederativa": "AC",
+  "valorfrete": "",
+  "formadepagamento": "",
+  "dadosCliente": { "cpfcliente": "087.953.147-92", "nomecliente": "teset" },
+  "detalhesPagamentoJSON": {},
+  "valorestotais": []
+}

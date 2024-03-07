@@ -200,5 +200,5 @@ app.get("/component_client", (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Servidor Node.js rodando na porta ${PORT}`);
+  (`Servidor Node.js rodando na porta ${PORT}`);
 });

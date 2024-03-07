@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const id = event.target.id;
         if (id === 'cpfCliente' || id === 'nomeCliente' || id === 'cnpjCliente' || id === 'razaoSocialCliente') {
             // Aqui você pode atualizar o localStorage ou variáveis conforme necessário
-            console.log(`${id}: ${event.target.value}`);
+            // console.log(`${id}: ${event.target.value}`);
         }
     });
 });

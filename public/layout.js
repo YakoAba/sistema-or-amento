@@ -28,16 +28,18 @@ async function iniciarBuscaOrcamento() {
   try {
     const jsonValue = getParameterByName("id");
     if (jsonValue !== null) {
-      console.log("Valor do parâmetro json:", jsonValue);
+      // console.log("Valor do parâmetro json:", jsonValue);
       const json = await buscarOrcamentoPorId(jsonValue);
-      console.log(json)
+      // console.log(json)
       document.getElementById('orcamento_numero').innerHTML = "Orçamento Nº " + jsonValue;
       document.getElementById('Validade').innerHTML = new Date(json.dados[0].validade_orcamento).toLocaleDateString();
       document.getElementById('data').innerHTML = 'Aparecida de Goiânia, '+ new Date(json.dados[0].data_orcamento).toLocaleDateString();
       document.getElementById('frete').innerHTML = json.dados[0].valor_frete.toLocaleString(undefined, { style: 'currency', currency: 'BRL' });
-      document.getElementById('envio').innerHTML = json.dados[0].forma_envio;
-      document.getElementById('cep').innerHTML = json.dados[0].cep_envio;
-      document.getElementById('uf_envio').innerHTML = json.dados[0].uf_envio;
+      document.getElementById('envio').innerHTML = json.dados[0];
+      document.getElementById('cep').innerHTML = json.dados[0];
+      document.getElementById('uf_envio').innerHTML = json.dados[0];
+      document.getElementById('cpf').innerHTML = json.dados[0];
+      // console.log(json.dados)
       
     } else {
       console.log("Parâmetro json não encontrado na URL");

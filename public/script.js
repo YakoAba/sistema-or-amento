@@ -1,3 +1,5 @@
+import ("./assets/ferramentas");
+
 // Função para adicionar máscara ao campo de CEP
 function formatarCEP(cep) {
   // Remove qualquer caractere que não seja dígito
@@ -19,7 +21,6 @@ inputCEP.addEventListener("input", function () {
 
   // Aplica a máscara ao valor do CEP
   valorCEP = formatarCEP(valorCEP);
-
   // Define o valor formatado de volta ao campo de entrada do CEP
   this.value = valorCEP;
 });
@@ -30,35 +31,7 @@ document.getElementById("cepEnvio").addEventListener("input", function () {
   let cep = this.value;
 
   // Mapeamento de faixas de CEP para cada UF
-  const faixasCEP = {
-    AC: ["69900", "69999"],
-    AL: ["57000", "57999"],
-    AP: ["68900", "68999"],
-    AM: ["69000", "69299"],
-    BA: ["40000", "48999"],
-    CE: ["60000", "63999"],
-    DF: ["70000", "73699"],
-    ES: ["29000", "29999"],
-    GO: ["72800", "76799"],
-    MA: ["65000", "65999"],
-    MT: ["78000", "78899"],
-    MS: ["79000", "79999"],
-    MG: ["30000", "39999"],
-    PA: ["66000", "68899"],
-    PB: ["58000", "58999"],
-    PR: ["80000", "87999"],
-    PE: ["50000", "56999"],
-    PI: ["64000", "64999"],
-    RJ: ["20000", "28999"],
-    RN: ["59000", "59999"],
-    RS: ["90000", "99999"],
-    RO: ["76800", "76999"],
-    RR: ["69300", "69399"],
-    SC: ["88000", "89999"],
-    SP: ["01000", "19999"],
-    SE: ["49000", "49999"],
-    TO: ["77000", "77999"],
-  };
+  
 
   // Verifica em qual UF o CEP se encaixa
   let uf = Object.keys(faixasCEP).find((uf) => {
@@ -104,6 +77,7 @@ function adicionarProduto() {
   const inputs = divProduto.querySelectorAll(
     'input[placeholder="Quantidade"], input[placeholder="Valor Unitário"]'
   );
+
   inputs.forEach((input) => {
     input.addEventListener("input", calcularTotalProduto);
   });
@@ -202,6 +176,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const formData = new FormData(
       document.getElementById("formularioOrcamento")
     );
+
     const objeto = {};
     formData.forEach((value, key) => {
       // Se o objeto já contém a chave, transforma o valor dessa chave em um array
@@ -220,21 +195,21 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Inclui dados baseados no tipo de cliente
-    if (objeto.tipocliente === "pf") {
-      objeto.dadosCliente = {
-        cpfcliente: objeto.cpfcliente,
-        nomecliente: objeto.nomecliente,
-      };
-    } else if (objeto.tipocliente === "pj") {
-      objeto.dadosCliente = {
-        cnpjcliente: objeto.cnpjcliente,
-        razaosocial: objeto.razaosocial,
-      };
-    }
+    // if (objeto.tipocliente === "pf") {
+    //   objeto.dadosCliente = {
+    //     cpfcliente: objeto.cpfcliente,
+    //     nomecliente: objeto.nomecliente,
+    //   };
+    // } else if (objeto.tipocliente === "pj") {
+    //   objeto.dadosCliente = {
+    //     cnpjcliente: objeto.cnpjcliente,
+    //     razaosocial: objeto.razaosocial,
+    //   };
+    // }
 
-    ["cpfcliente", "nomecliente", "cnpjcliente", "razaosocial"].forEach(
-      (key) => delete objeto[key]
-    );
+    // ["cpfcliente", "nomecliente", "cnpjcliente", "razaosocial"].forEach(
+    //   (key) => delete objeto[key]
+    // );
 
     function extrairValoresTotais() {
       const TotalPriceElements = document.querySelectorAll(".totalProduto");
@@ -280,7 +255,6 @@ document.addEventListener("DOMContentLoaded", function () {
           cartao: "Cartão de Crédito",
         };
       }
-
       return detalhesPagamentoJSON;
     }
 
@@ -288,9 +262,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // console.log("Pagamento:", objeto); // Para debugar
 
     objeto.valorestotais = extrairValoresTotais();
-
+    console.log(objeto);
     const json = JSON.stringify(objeto);
-    console.log("JSON a ser enviado:", json); // Para debugar
+    // console.log("JSON a ser enviado:", json); // Para debugar
     // 3. Abrir uma nova janela para exibir o modelo e imprimir
     enviarDadosParaNodeJS(json);
   }
@@ -300,14 +274,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // const jsonStr = json;
 
     // Cria a URL com o JSON como parâmetro
-    const url = `/layout?id=`+id;
+    const url = `/layout?id=` + id;
 
     // Abre a nova aba
     window.open(url, "_blank");
   }
 
   function enviarDadosParaNodeJS(json) {
-    console.log("Enviando dados para o Node.js:", json);
+    // console.log("Enviando dados para o Node.js:", json);
     fetch("/imprimir", {
       method: "POST",
       headers: {
@@ -326,7 +300,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Resposta do servidor:", data);
         if (data.mensagens && data.mensagens.length > 0) {
           data.mensagens.forEach((msg) => {
-            console.log(msg.mensagem);
+            // console.log(msg.mensagem);
             if (msg.erro) console.error(msg.erro);
             else abrirNovaAbaComJson(data.id);
           });
